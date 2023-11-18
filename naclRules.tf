@@ -35,6 +35,7 @@ resource "ncloud_network_acl_rule" "lb_nacl_rule" {
     rule_action = "ALLOW"
     ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
+    description = "ANY"
   }
 }
 
@@ -75,6 +76,7 @@ resource "ncloud_network_acl_rule" "was_nacl_rule" {
     rule_action = "ALLOW"
     ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
+    description = "ANY"
   }
 }
 

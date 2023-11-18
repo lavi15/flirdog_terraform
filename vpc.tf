@@ -27,7 +27,7 @@ resource "ncloud_network_acl" "db_nacl" {
 resource "ncloud_network_acl" "dp_nacl" {
   vpc_no = ncloud_vpc.vpc.id
   name   = var.nacl_name.dp
-  description = "dataPipeline_nacl"
+  description = "dp_nacl"
 }
 
 

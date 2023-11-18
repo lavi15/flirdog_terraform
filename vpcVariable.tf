@@ -28,11 +28,11 @@ variable "nacl_name" {
     was = "flirdog-was-nacl"
     lb  = "flirdog-lb-nacl"
     db  = "flirdog-db-nacl"
-    dp  = "flirdog-db-nacl"
+    dp  = "flirdog-dp-nacl"
   }
 }
 
-#LB Subnet
+#Subnet
 variable "lb_subnet" {
   type = map(string)
 
