@@ -45,9 +45,6 @@ variable "lb_subnet" {
   }
 }
 
-
-
-
 variable "was_subnet" {
   type = map(string)
 
