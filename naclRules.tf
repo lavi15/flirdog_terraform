@@ -143,6 +143,15 @@ resource "ncloud_network_acl_rule" "dp_nacl_rule" {
     description = "DB"
   }
 
+  inbound {
+    priority    = 20
+    protocol    = "TCP"
+    rule_action = "ALLOW"
+    ip_block    = var.dp_subnet.ip
+    port_range  = "1-65535"
+    description = "DP"
+  }
+
   outbound {
     priority    = 0
     protocol    = "TCP"
@@ -159,5 +168,14 @@ resource "ncloud_network_acl_rule" "dp_nacl_rule" {
     ip_block    = var.db_subnet.ip
     port_range  = "1-65535"
     description = "DB"
+  }
+
+  outbound {
+    priority    = 20
+    protocol    = "TCP"
+    rule_action = "ALLOW"
+    ip_block    = var.dp_subnet.ip
+    port_range  = "1-65535"
+    description = "DP"
   }
 }

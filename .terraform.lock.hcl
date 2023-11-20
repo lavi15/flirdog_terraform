@@ -5,6 +5,7 @@ provider "registry.terraform.io/navercloudplatform/ncloud" {
   version = "2.3.18"
   hashes = [
     "h1:6PFf1nPe9syvwTMup3CAOLiKjRo0bcTtbdzHC8oy/tA=",
+    "h1:xZobqEgy/bi3PJPbyTgEtMb3xygWwL33X/hZ6Y8hJco=",
     "zh:0f6d1510358efbac445102f17bfb2e78d1e5fdcb99cba62d7c3787e793122331",
     "zh:1c3b57b1500c5855fe1aec27f56caf3b830a96a99c6ab9c6f60841efa101c29d",
     "zh:37eece6471a9a892b2fa13ff23a99ad00b5fca433298fd992dcb4f34ff256d72",

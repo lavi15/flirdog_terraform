@@ -115,6 +115,13 @@ resource "ncloud_access_control_group_rule" "dp_acg_rule" {
     description = "accept DB"
   }
 
+  inbound {
+    protocol    = "TCP"
+    ip_block    = var.dp_subnet.ip
+    port_range  = "1-65535"
+    description = "accept DP"
+  }
+
   outbound {
     protocol    = "TCP"
     ip_block    = var.was_subnet.ip
@@ -127,5 +134,12 @@ resource "ncloud_access_control_group_rule" "dp_acg_rule" {
     ip_block    = var.db_subnet.ip
     port_range  = "1-65535"
     description = "accept DB"
+  }
+
+  outbound {
+    protocol    = "TCP"
+    ip_block    = var.dp_subnet.ip
+    port_range  = "1-65535"
+    description = "accept DP"
   }
 }
