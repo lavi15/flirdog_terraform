@@ -142,4 +142,10 @@ resource "ncloud_access_control_group_rule" "dp_acg_rule" {
     port_range  = "1-65535"
     description = "accept DP"
   }
+  outbound {
+    protocol    = "TCP"
+    ip_block    = "0.0.0.0/0"
+    port_range  = "1-65535"
+    description = "accept ANY port"
+  }
 }
