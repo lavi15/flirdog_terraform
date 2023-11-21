@@ -6,9 +6,9 @@ variable "kafka_server" {
     kafka-cluster1-ip = "10.0.3.16"
     kafka-cluster2-ip = "10.0.3.17"
     kafka-cluster3-ip = "10.0.3.18"
-    kafka-cluster1-image = "20652792"
-    kafka-cluster2-image = "20652829"
-    kafka-cluster3-image = "20652839"
+    kafka-cluster1-image = "20655426"
+    kafka-cluster2-image = "20655428"
+    kafka-cluster3-image = "20655430"
   }
 }
 

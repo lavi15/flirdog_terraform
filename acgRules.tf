@@ -5,26 +5,26 @@ resource "ncloud_access_control_group_rule" "was_acg_rule" {
   inbound {
     protocol    = "TCP"
     ip_block    = "0.0.0.0/0"
-    port_range  = "22"
-    description = "accept SSH"
+    port_range  = "1-65535"
+    description = "accept ANY port"
   }
 
   inbound {
-    protocol    = "TCP"
+    protocol    = "UDP"
     ip_block    = "0.0.0.0/0"
-    port_range  = "80"
-    description = "accept HTTP"
-  }
-
-  inbound {
-    protocol    = "TCP"
-    ip_block    = "0.0.0.0/0"
-    port_range  = "443"
-    description = "accept HTTPS"
+    port_range  = "1-65535"
+    description = "accept ANY port"
   }
 
   outbound {
     protocol    = "TCP"
+    ip_block    = "0.0.0.0/0"
+    port_range  = "1-65535"
+    description = "accept ANY port"
+  }
+
+  outbound {
+    protocol    = "UDP"
     ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
     description = "accept ANY port"
@@ -122,30 +122,30 @@ resource "ncloud_access_control_group_rule" "dp_acg_rule" {
     description = "accept DP"
   }
 
-  outbound {
-    protocol    = "TCP"
+  inbound {
+    protocol    = "UDP"
     ip_block    = var.was_subnet.ip
     port_range  = "1-65535"
     description = "accept WAS"
   }
 
-  outbound {
-    protocol    = "TCP"
+  inbound {
+    protocol    = "UDP"
     ip_block    = var.db_subnet.ip
     port_range  = "1-65535"
     description = "accept DB"
   }
 
-  outbound {
-    protocol    = "TCP"
+  inbound {
+    protocol    = "UDP"
     ip_block    = var.dp_subnet.ip
     port_range  = "1-65535"
     description = "accept DP"
   }
+
   outbound {
     protocol    = "TCP"
     ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
     description = "accept ANY port"
   }
-}
