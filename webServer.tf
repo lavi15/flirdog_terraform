@@ -78,11 +78,11 @@ resource "ncloud_server" "was_server_2" {
   }
 }
 
-resource "ncloud_server" "was_server_3" {
+resource "ncloud_server" "was_dev_server" {
   subnet_no = ncloud_subnet.was_subnet.id
   name      = "flirdog-was3"
-  server_product_code = var.was_server.server_product_code
-  member_server_image_no = var.was_server.member_server_image_no
+  server_product_code = "SVR.VSVR.HICPU.C032.M064.NET.HDD.B100.G002"
+  server_image_product_code = "SW.VSVR.OS.WND64.WND.SVR2019EN.B100"
   login_key_name = var.loginkey
   init_script_no = ncloud_init_script.was-init-script.id
   network_interface {
@@ -90,6 +90,7 @@ resource "ncloud_server" "was_server_3" {
     order                = 0
   }
 }
+
 
 
 #LB
@@ -138,5 +139,6 @@ resource "ncloud_lb_listener" "was_lb_listener_http" {
 
 resource "ncloud_lb_target_group_attachment" "was_lb_target_group_attachment" {
   target_group_no = ncloud_lb_target_group.was_lb_target_group.target_group_no
-  target_no_list = [ncloud_server.was_server_1.instance_no, ncloud_server.was_server_2.instance_no, ncloud_server.was_server_3.instance_no]
+  target_no_list = [ncloud_server.was_server_1.instance_no, ncloud_server.was_server_2.instance_no]
 }
+

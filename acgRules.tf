@@ -70,30 +70,30 @@ resource "ncloud_access_control_group_rule" "db_acg_rule" {
 
   inbound {
     protocol    = "TCP"
-    ip_block    = var.was_subnet.ip
+    ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
-    description = "accept WAS"
+    description = "accept ANY port"
   }
 
   inbound {
-    protocol    = "TCP"
-    ip_block    = var.dp_subnet.ip
+    protocol    = "UDP"
+    ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
-    description = "accept DP"
+    description = "accept ANY port"
   }
 
   outbound {
     protocol    = "TCP"
-    ip_block    = var.was_subnet.ip
+    ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
-    description = "accept WAS"
+    description = "accept ANY port"
   }
 
   outbound {
-    protocol    = "TCP"
-    ip_block    = var.dp_subnet.ip
+    protocol    = "UDP"
+    ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
-    description = "accept DP"
+    description = "accept ANY port"
   }
 }
 
@@ -103,44 +103,16 @@ resource "ncloud_access_control_group_rule" "dp_acg_rule" {
 
   inbound {
     protocol    = "TCP"
-    ip_block    = var.was_subnet.ip
+    ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
-    description = "accept WAS"
-  }
-
-  inbound {
-    protocol    = "TCP"
-    ip_block    = var.db_subnet.ip
-    port_range  = "1-65535"
-    description = "accept DB"
-  }
-
-  inbound {
-    protocol    = "TCP"
-    ip_block    = var.dp_subnet.ip
-    port_range  = "1-65535"
-    description = "accept DP"
+    description = "accept ANY port"
   }
 
   inbound {
     protocol    = "UDP"
-    ip_block    = var.was_subnet.ip
+    ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
-    description = "accept WAS"
-  }
-
-  inbound {
-    protocol    = "UDP"
-    ip_block    = var.db_subnet.ip
-    port_range  = "1-65535"
-    description = "accept DB"
-  }
-
-  inbound {
-    protocol    = "UDP"
-    ip_block    = var.dp_subnet.ip
-    port_range  = "1-65535"
-    description = "accept DP"
+    description = "accept ANY port"
   }
 
   outbound {
@@ -149,3 +121,11 @@ resource "ncloud_access_control_group_rule" "dp_acg_rule" {
     port_range  = "1-65535"
     description = "accept ANY port"
   }
+
+  outbound {
+    protocol    = "UDP"
+    ip_block    = "0.0.0.0/0"
+    port_range  = "1-65535"
+    description = "accept ANY port"
+  }
+}

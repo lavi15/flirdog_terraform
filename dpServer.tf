@@ -88,7 +88,7 @@ resource "ncloud_server" "dp_connect_server" {
   subnet_no = ncloud_subnet.was_subnet.id
   name      = "dp-connect-server"
   server_product_code = var.kafka_server.server_product_code
-  member_server_image_no = "20635034"
+  server_image_product_code = "SW.VSVR.OS.LNX64.UBNTU.SVR2004.B050"
   login_key_name = var.loginkey
   init_script_no = ncloud_init_script.was-init-script.id
   network_interface {
@@ -99,4 +99,9 @@ resource "ncloud_server" "dp_connect_server" {
 
 resource "ncloud_public_ip" "dp_connect_server_public_ip" {
   server_instance_no =ncloud_server.dp_connect_server.instance_no
+}
+
+
+resource "ncloud_public_ip" "was_dev_pulic_ip" {
+  server_instance_no =ncloud_server.was_dev_server.instance_no
 }

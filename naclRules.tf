@@ -129,106 +129,35 @@ resource "ncloud_network_acl_rule" "dp_nacl_rule" {
     priority    = 0
     protocol    = "TCP"
     rule_action = "ALLOW"
-    ip_block    = var.was_subnet.ip
+    ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
-    description = "WAS"
+    description = "ANY"
   }
 
   inbound {
     priority    = 10
-    protocol    = "TCP"
-    rule_action = "ALLOW"
-    ip_block    = var.db_subnet.ip
-    port_range  = "1-65535"
-    description = "DB"
-  }
-
-  inbound {
-    priority    = 20
-    protocol    = "TCP"
-    rule_action = "ALLOW"
-    ip_block    = var.dp_subnet.ip
-    port_range  = "1-65535"
-    description = "DP"
-  }
-
-  inbound {
-    priority    = 30
     protocol    = "UDP"
     rule_action = "ALLOW"
-    ip_block    = var.was_subnet.ip
+    ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
-    description = "WAS"
-  }
-
-  inbound {
-    priority    = 40
-    protocol    = "UDP"
-    rule_action = "ALLOW"
-    ip_block    = var.db_subnet.ip
-    port_range  = "1-65535"
-    description = "DB"
-  }
-
-  inbound {
-    priority    = 50
-    protocol    = "UDP"
-    rule_action = "ALLOW"
-    ip_block    = var.dp_subnet.ip
-    port_range  = "1-65535"
-    description = "DP"
+    description = "ANY"
   }
 
   outbound {
     priority    = 0
     protocol    = "TCP"
     rule_action = "ALLOW"
-    ip_block    = var.was_subnet.ip
+    ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
-    description = "WAS"
+    description = "ANY"
   }
 
   outbound {
     priority    = 10
-    protocol    = "TCP"
-    rule_action = "ALLOW"
-    ip_block    = var.db_subnet.ip
-    port_range  = "1-65535"
-    description = "DB"
-  }
-
-  outbound {
-    priority    = 20
-    protocol    = "TCP"
-    rule_action = "ALLOW"
-    ip_block    = var.dp_subnet.ip
-    port_range  = "1-65535"
-    description = "DP"
-  }
-  outbound {
-    priority    = 40
     protocol    = "UDP"
     rule_action = "ALLOW"
-    ip_block    = var.was_subnet.ip
+    ip_block    = "0.0.0.0/0"
     port_range  = "1-65535"
-    description = "WAS"
-  }
-
-  outbound {
-    priority    = 50
-    protocol    = "UDP"
-    rule_action = "ALLOW"
-    ip_block    = var.db_subnet.ip
-    port_range  = "1-65535"
-    description = "DB"
-  }
-
-  outbound {
-    priority    = 60
-    protocol    = "UDP"
-    rule_action = "ALLOW"
-    ip_block    = var.dp_subnet.ip
-    port_range  = "1-65535"
-    description = "DP"
+    description = "ANY"
   }
 }
